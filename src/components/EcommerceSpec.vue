@@ -1,16 +1,17 @@
 <template>
-  <section class="ecommerce">
-    <div class="section-header fade-in">
-      <span class="sec-num">12</span>
-      <span class="sec-tag">✦ 电商详情页规范</span>
-      <p class="sec-desc">统一结构（13 步标准流程）</p>
-    </div>
+  <section class="section bg-neutral">
+    <div class="section-inner">
+      <div class="fade-in" style="margin-bottom:48px;">
+        <div class="section-tag">电商详情页规范</div>
+        <p class="section-subtitle">统一结构（13 步标准流程）</p>
+      </div>
 
-    <div class="ec-grid fade-in">
-      <div class="ec-step" v-for="s in steps" :key="s.num">
-        <div class="ec-num">{{ s.num }}</div>
-        <strong>{{ s.title }}</strong>
-        <span class="ec-sub">{{ s.sub }}</span>
+      <div class="ec-grid fade-in">
+        <div class="ec-step" v-for="s in steps" :key="s.num">
+          <div class="ec-num">{{ s.num }}</div>
+          <strong>{{ s.title }}</strong>
+          <span class="ec-sub">{{ s.sub }}</span>
+        </div>
       </div>
     </div>
   </section>
@@ -30,64 +31,45 @@ const steps = [
 </script>
 
 <style scoped>
-.ecommerce {
-  padding: 7mm 12mm;
-  position: relative;
-  overflow: hidden;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.section-header { position: relative; z-index: 1; margin-bottom: 5mm; }
-.sec-num {
-  font-family: "Noto Serif SC", serif;
-  font-size: 50px; font-weight: 900;
-  color: rgba(217,185,145,0.07);
-  position: absolute; top: -14px; right: 0;
-  line-height: 1;
-}
-.sec-tag { font-size: 11px; letter-spacing: 6px; color: var(--accent-warm); font-weight: 700; display: block; margin-bottom: 2mm; }
-.sec-desc { font-size: 13px; color: var(--text-mid); letter-spacing: 2px; }
-
 .ec-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3mm;
-  position: relative; z-index: 1;
+  gap: 16px;
 }
 
 .ec-step {
-  padding: 4mm 3mm;
+  padding: 28px 16px;
   text-align: center;
-  border-radius: 10px;
-  border: 2px solid rgba(217,185,145,0.13);
+  border-radius: var(--card-radius);
+  border: 2px solid rgba(217,185,145,0.14);
   background: #FFFDF9;
-  box-shadow: 0 1px 6px rgba(60,30,10,0.03);
+  box-shadow: 0 2px 10px rgba(60,30,10,0.03);
   transition: transform 0.3s;
 }
 .ec-step:nth-child(odd) { background: #FFFBF6; }
-.ec-step:hover { transform: translateY(-2px); }
+.ec-step:hover { transform: translateY(-4px); }
 
 .ec-num {
   font-family: "Noto Serif SC", serif;
-  font-size: 12px;
+  font-size: 16px;
   color: var(--accent-warm);
   letter-spacing: 2px;
   font-weight: 700;
-  margin-bottom: 2mm;
+  margin-bottom: 8px;
 }
 .ec-step strong {
   display: block;
-  font-size: 13px;
+  font-size: 17px;
   color: var(--text);
   font-weight: 700;
-  margin-bottom: 1mm;
+  margin-bottom: 6px;
 }
-.ec-sub { font-size: 11px; color: var(--text-light); }
+.ec-sub { font-size: 14px; color: var(--text-light); }
 
 @media (max-width: 768px) {
   .ec-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .ec-grid { grid-template-columns: 1fr; }
 }
 </style>

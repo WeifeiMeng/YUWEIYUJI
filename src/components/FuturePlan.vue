@@ -1,17 +1,19 @@
 <template>
-  <section class="future">
-    <div class="blob blob-gold"></div>
-    <div class="section-header fade-in">
-      <span class="sec-num">11</span>
-      <span class="sec-tag">✦ 品牌未来三年规划</span>
-    </div>
+  <section class="section bg-warm">
+    <div class="blob blob-gold" style="width:360px;height:360px;top:-80px;right:-80px;"></div>
 
-    <div class="timeline fade-in">
-      <div class="t-phase" v-for="(p, i) in phases" :key="p.year" :class="'tp-' + (i + 1)">
-        <span class="tp-year">{{ p.year }}</span>
-        <h3 class="tp-title">{{ p.title }}</h3>
-        <div class="tp-items">
-          <span v-for="item in p.items" :key="item">{{ item }}<br /></span>
+    <div class="section-inner">
+      <div class="fade-in" style="margin-bottom:48px;">
+        <div class="section-tag">品牌未来三年规划</div>
+      </div>
+
+      <div class="timeline fade-in">
+        <div class="t-phase" v-for="(p, i) in phases" :key="p.year" :class="'tp-' + (i + 1)">
+          <span class="tp-year">{{ p.year }}</span>
+          <h3 class="tp-title">{{ p.title }}</h3>
+          <div class="tp-items">
+            <span v-for="item in p.items" :key="item">{{ item }}<br /></span>
+          </div>
         </div>
       </div>
     </div>
@@ -27,63 +29,34 @@ const phases = [
 </script>
 
 <style scoped>
-.future {
-  padding: 7mm 12mm;
-  position: relative;
-  overflow: hidden;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.blob-gold {
-  position: absolute;
-  width: 180px; height: 180px;
-  background: radial-gradient(circle, rgba(217,185,145,0.10) 0%, transparent 70%);
-  top: -40px; right: -40px;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.section-header { position: relative; z-index: 1; margin-bottom: 5mm; }
-.sec-num {
-  font-family: "Noto Serif SC", serif;
-  font-size: 50px; font-weight: 900;
-  color: rgba(224,123,76,0.06);
-  position: absolute; top: -14px; right: 0;
-  line-height: 1;
-}
-.sec-tag { font-size: 11px; letter-spacing: 6px; color: var(--accent-warm); font-weight: 700; display: block; margin-bottom: 3mm; }
-
 .timeline {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4mm;
-  position: relative; z-index: 1;
+  gap: 24px;
 }
 
 .t-phase {
-  padding: 5mm 4mm;
-  border-radius: 12px;
+  padding: 44px 28px;
+  border-radius: var(--card-radius);
   text-align: center;
   box-shadow: var(--card-shadow);
   border: 2px solid transparent;
   transition: transform 0.3s;
 }
-.t-phase:hover { transform: translateY(-2px); }
-.tp-1 { background: linear-gradient(180deg, #FFF5EE, #FFFDF9); border-color: rgba(224,123,76,0.18); }
-.tp-2 { background: linear-gradient(180deg, #FFFDF8, #FFF9F2); border-color: rgba(217,185,145,0.22); }
-.tp-3 { background: linear-gradient(180deg, #FFF8F2, #FFFDF9); border-color: rgba(194,104,58,0.18); }
+.t-phase:hover { transform: translateY(-6px); }
+.tp-1 { background: linear-gradient(180deg, #FFF5EE, #FFFDF9); border-color: rgba(224,123,76,0.20); }
+.tp-2 { background: linear-gradient(180deg, #FFFDF8, #FFF9F2); border-color: rgba(217,185,145,0.25); }
+.tp-3 { background: linear-gradient(180deg, #FFF8F2, #FFFDF9); border-color: rgba(194,104,58,0.20); }
 
 .tp-year {
   font-family: "Noto Serif SC", serif;
-  font-size: 14px; letter-spacing: 4px;
+  font-size: 18px;
+  letter-spacing: 6px;
   font-weight: 700;
   display: inline-block;
-  padding: 2mm 4mm;
-  border-radius: 14px;
-  margin-bottom: 3mm;
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
 }
 .tp-1 .tp-year { background: rgba(224,123,76,0.10); color: var(--accent-warm); }
 .tp-2 .tp-year { background: rgba(217,185,145,0.15); color: var(--accent-deep); }
@@ -91,12 +64,13 @@ const phases = [
 
 .tp-title {
   font-family: "Noto Serif SC", serif;
-  font-size: 19px; font-weight: 900;
-  letter-spacing: 2px;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 3px;
   color: var(--text);
-  margin-bottom: 3mm;
+  margin-bottom: 20px;
 }
-.tp-items { font-size: 13px; color: var(--text-mid); line-height: 2.3; }
+.tp-items { font-size: 17px; color: var(--text-mid); line-height: 2.5; }
 
 @media (max-width: 768px) {
   .timeline { grid-template-columns: 1fr; }

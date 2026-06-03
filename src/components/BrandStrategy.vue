@@ -1,25 +1,27 @@
 <template>
-  <section class="strategy print-page">
-    <div class="blob blob-pink"></div>
-    <div class="section-header fade-in">
-      <span class="sec-num">01</span>
-      <span class="sec-tag">✦ 品牌战略</span>
-      <h2 class="sec-title">品牌释义</h2>
-      <p class="sec-desc">一座可以停靠的小岛 ✦ 毛孩子开心摇动的尾巴 ✦ 一年四季的陪伴</p>
-    </div>
+  <section class="section bg-warm">
+    <div class="blob blob-pink" style="width:300px;height:300px;top:-80px;right:-100px;"></div>
 
-    <div class="name-meaning fade-in">
-      <div class="name-char" v-for="(item, i) in nameChars" :key="i" :class="'char-' + (i + 1)">
-        <span class="char-big">{{ item.char }}</span>
-        <span class="char-desc" v-html="item.desc"></span>
+    <div class="section-inner">
+      <div class="fade-in" style="margin-bottom:48px;">
+        <div class="section-tag">品牌战略</div>
+        <h2 class="section-title">品牌释义</h2>
+        <p class="section-subtitle">一座可以停靠的小岛 · 毛孩子开心摇动的尾巴 · 一年四季的陪伴</p>
       </div>
-    </div>
 
-    <div class="strategy-grid fade-in">
-      <div class="strategy-card" v-for="(card, i) in strategyCards" :key="i" :class="'card-' + (i + 1)">
-        <div class="card-label">{{ card.label }}</div>
-        <div class="card-title" v-html="card.title"></div>
-        <div class="card-body" v-if="card.body" v-html="card.body"></div>
+      <div class="name-meaning fade-in">
+        <div class="name-char" v-for="(item, i) in nameChars" :key="i" :class="'char-' + (i + 1)">
+          <span class="char-big">{{ item.char }}</span>
+          <span class="char-desc" v-html="item.desc"></span>
+        </div>
+      </div>
+
+      <div class="strategy-grid fade-in">
+        <div class="strategy-card" v-for="(card, i) in strategyCards" :key="i" :class="'card-' + (i + 1)">
+          <div class="card-label">{{ card.label }}</div>
+          <div class="card-title" v-html="card.title"></div>
+          <div class="card-body" v-if="card.body" v-html="card.body"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -41,108 +43,72 @@ const strategyCards = [
 </script>
 
 <style scoped>
-.strategy {
-  background: linear-gradient(180deg, #FFFBF7 0%, #FFF5EE 100%);
-  padding: 6mm 14mm;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.blob-pink {
-  position: absolute;
-  width: 140px; height: 140px;
-  background: radial-gradient(circle, rgba(242,217,205,0.14) 0%, transparent 70%);
-  top: -30px; right: -40px;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.section-header { position: relative; z-index: 1; margin-bottom: 4mm; }
-.sec-num {
-  font-family: "Noto Serif SC", serif;
-  font-size: 48px; font-weight: 900;
-  color: rgba(224,123,76,0.05);
-  position: absolute; top: -12px; right: 0;
-  line-height: 1;
-}
-.sec-tag { font-size: 9px; letter-spacing: 5px; color: var(--accent-warm); font-weight: 700; display: block; margin-bottom: 2mm; }
-.sec-title { font-family: "Noto Serif SC", serif; font-size: 26px; font-weight: 900; letter-spacing: 3px; color: var(--text); margin-bottom: 1mm; line-height: 1.2; }
-.sec-desc { font-size: 12px; color: var(--text-mid); letter-spacing: 1px; }
-
 .name-meaning {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4mm;
-  margin-bottom: 4mm;
-  position: relative;
-  z-index: 1;
+  gap: 24px;
+  margin-bottom: 36px;
 }
 
 .name-char {
   text-align: center;
-  padding: 5mm 4mm;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
+  padding: 48px 28px 40px;
+  border-radius: var(--card-radius);
   background: var(--white);
   box-shadow: var(--card-shadow);
   border: 2px solid transparent;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+.name-char:hover { transform: translateY(-6px); box-shadow: var(--card-shadow-lg); }
 .char-1 { border-color: var(--accent-warm); background: linear-gradient(180deg, #FFF5EE 0%, #FFF 100%); }
 .char-2 { border-color: var(--khaki); background: linear-gradient(180deg, #FFFBF3 0%, #FFF 100%); }
 .char-3 { border-color: var(--accent); background: linear-gradient(180deg, #FFF8F2 0%, #FFF 100%); }
 
 .char-big {
   font-family: "Noto Serif SC", serif;
-  font-size: 38px; font-weight: 900;
+  font-size: 72px;
+  font-weight: 900;
   line-height: 1;
   display: block;
-  margin-bottom: 3mm;
+  margin-bottom: 16px;
 }
 .char-1 .char-big { color: var(--accent-warm); }
 .char-2 .char-big { color: var(--khaki); }
 .char-3 .char-big { color: var(--accent); }
 
-.char-desc { font-size: 11px; color: var(--text-mid); line-height: 1.7; }
+.char-desc { font-size: 16px; color: var(--text-mid); line-height: 2; }
 
 .strategy-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3mm;
-  position: relative;
-  z-index: 1;
+  gap: 20px;
 }
 
 .strategy-card {
-  padding: 4mm 5mm;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
+  padding: 32px 28px;
+  border-radius: var(--card-radius);
   box-shadow: var(--card-shadow);
   border: 2px solid transparent;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+.strategy-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-lg); }
+.card-1, .card-2, .card-3, .card-4 { background: linear-gradient(140deg, #FFFDF9 0%, #FFF5EB 100%); }
+.card-1 { border-color: rgba(224,123,76,0.18); }
+.card-2 { border-color: rgba(217,185,145,0.22); }
+.card-3 { border-color: rgba(212,145,94,0.18); }
+.card-4 { border-color: rgba(217,185,145,0.22); }
 
-.card-1, .card-2, .card-3, .card-4 {
-  background: linear-gradient(140deg, #FFFDF9 0%, #FFF5EB 100%);
-}
-.card-1 { border-color: rgba(224,123,76,0.16); }
-.card-2 { border-color: rgba(217,185,145,0.20); }
-.card-3 { border-color: rgba(212,145,94,0.16); }
-.card-4 { border-color: rgba(217,185,145,0.20); }
-
-.card-label { font-size: 8px; letter-spacing: 4px; color: var(--accent-warm); margin-bottom: 1.5mm; font-weight: 700; }
-.card-title { font-family: "Noto Serif SC", serif; font-size: 13px; font-weight: 900; letter-spacing: 1px; color: var(--text); line-height: 1.35; margin-bottom: 1.5mm; min-height: auto; }
-.card-body { font-size: 10px; color: var(--text-mid); line-height: 1.65; }
+.card-label { font-size: 11px; letter-spacing: 6px; color: var(--accent-warm); margin-bottom: 12px; font-weight: 700; }
+.card-title { font-family: "Noto Serif SC", serif; font-size: 24px; font-weight: 900; letter-spacing: 2px; color: var(--text); line-height: 1.4; margin-bottom: 8px; }
+.card-body { font-size: 15px; color: var(--text-mid); line-height: 1.9; }
 
 @media (max-width: 900px) {
-  .name-meaning, .strategy-grid { grid-template-columns: 1fr 1fr; }
+  .name-meaning { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .strategy-grid { grid-template-columns: 1fr 1fr; }
+  .char-big { font-size: 48px; }
 }
-@media (max-width: 600px) {
-  .strategy { padding: 6mm 4mm; }
-  .name-meaning, .strategy-grid { grid-template-columns: 1fr; }
-  .sec-title { font-size: 22px; }
+@media (max-width: 640px) {
+  .name-meaning { grid-template-columns: 1fr; }
+  .strategy-grid { grid-template-columns: 1fr; }
 }
 </style>

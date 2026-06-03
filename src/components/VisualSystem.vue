@@ -1,55 +1,60 @@
 <template>
-  <section class="visual print-page">
-    <div class="blob blob-pink"></div>
-    <div class="blob blob-green2"></div>
-    <div class="section-header fade-in">
-      <span class="sec-num">06</span>
-      <span class="sec-tag">✦ 品牌视觉体系</span>
-      <h2 class="sec-title">品牌色彩</h2>
-      <p class="sec-desc">自然 · 留白 · 温暖 · 治愈 · 真实 · 生活方式</p>
-    </div>
+  <section class="section bg-warm">
+    <div class="blob blob-pink" style="width:280px;height:280px;top:-60px;right:-80px;"></div>
 
-    <div class="fade-in">
-      <h3 class="sub-head">品牌主色</h3>
-      <div class="color-palette">
-        <div class="color-swatch" v-for="c in mainColors" :key="c.hex" :style="{ background: c.hex }">
-          <div>
-            <div class="swatch-label">{{ c.name }}</div>
-            <div class="swatch-hex">{{ c.hex }} · {{ c.role }}</div>
+    <div class="section-inner">
+      <div class="fade-in" style="margin-bottom:48px;">
+        <div class="section-tag">品牌视觉体系</div>
+        <h2 class="section-title">品牌色彩</h2>
+        <p class="section-subtitle">自然 · 留白 · 温暖 · 治愈 · 真实 · 生活方式</p>
+      </div>
+
+      <!-- Main colors -->
+      <div class="fade-in" style="margin-bottom:40px;">
+        <h3 class="sub-head">品牌主色</h3>
+        <div class="color-palette">
+          <div class="color-swatch" v-for="c in mainColors" :key="c.hex" :style="{ background: c.hex }">
+            <div class="swatch-info">
+              <div class="swatch-label">{{ c.name }}</div>
+              <div class="swatch-hex">{{ c.hex }} · {{ c.role }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="accent-dot">
+          <span class="accent-circle"></span> 强调色 #E07B4C
+        </div>
+      </div>
+
+      <!-- Series colors -->
+      <div class="fade-in" style="margin-bottom:40px;">
+        <h3 class="sub-head">系列辅助色</h3>
+        <div class="series-grid">
+          <div class="series-color" v-for="s in seriesColors" :key="s.name" :style="{ background: s.hex }">
+            {{ s.name }} · {{ s.label }}
           </div>
         </div>
       </div>
-      <div class="accent-dot">
-        <span class="accent-circle"></span>
-        强调色 #E07B4C
-      </div>
-    </div>
 
-    <div class="fade-in" style="margin-top:6mm;">
-      <h3 class="sub-head">系列辅助色</h3>
-      <div class="series-grid">
-        <div class="series-color" v-for="s in seriesColors" :key="s.name" :style="{ background: s.hex }">
-          {{ s.name }} · {{ s.label }}
+      <!-- Photo style -->
+      <div class="fade-in" style="margin-bottom:40px;">
+        <h3 class="sub-head">摄影风格</h3>
+        <div class="photo-tags">
+          <span class="photo-tag" v-for="(t, i) in photoStyles" :key="t" :class="'pt-' + (i + 1)">{{ t }}</span>
         </div>
       </div>
-    </div>
 
-    <div class="fade-in" style="margin-top:6mm;">
-      <h3 class="sub-head">摄影风格</h3>
-      <div class="photo-tags">
-        <span class="photo-tag" v-for="(t, i) in photoStyles" :key="t" :class="'pt-' + (i + 1)">{{ t }}</span>
+      <!-- Ref brands -->
+      <div class="fade-in" style="margin-bottom:40px;">
+        <h3 class="sub-head">参考品牌</h3>
+        <div class="ref-brands">
+          <span class="ref-brand" v-for="r in refBrands" :key="r">{{ r }}</span>
+        </div>
       </div>
-    </div>
 
-    <div class="fade-in" style="margin-top:6mm;">
-      <h3 class="sub-head">参考品牌</h3>
-      <div class="ref-brands">
-        <span class="ref-brand" v-for="r in refBrands" :key="r">{{ r }}</span>
+      <!-- Trademark -->
+      <div class="trademark fade-in">
+        <img src="/商标.jpg" alt="注册商标" />
       </div>
-    </div>
-
-    <div class="trademark fade-in">
-      <img src="/商标.jpg" alt="注册商标" />
     </div>
   </section>
 </template>
@@ -72,128 +77,101 @@ const refBrands = ['共我生活', '尾巴生活', 'MUJI', '观夏']
 </script>
 
 <style scoped>
-.visual {
-  background: linear-gradient(180deg, #FFFBF7 0%, #FFF5EE 100%);
-  padding: 10mm 14mm;
-  position: relative;
-  overflow: hidden;
-}
-
-.blob-pink {
-  position: absolute;
-  width: 160px; height: 160px;
-  background: radial-gradient(circle, rgba(242,217,205,0.16) 0%, transparent 70%);
-  top: -40px; right: -50px;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.blob-green2 {
-  position: absolute;
-  width: 120px; height: 120px;
-  background: radial-gradient(circle, rgba(213,226,205,0.14) 0%, transparent 70%);
-  bottom: -20px; left: -30px;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.section-header { position: relative; z-index: 1; margin-bottom: 6mm; }
-.sec-num {
-  font-family: "Noto Serif SC", serif;
-  font-size: 56px; font-weight: 900;
-  color: rgba(224,123,76,0.06);
-  position: absolute; top: -16px; right: 0;
-  line-height: 1;
-}
-.sec-tag { font-size: 10px; letter-spacing: 5px; color: var(--accent-warm); font-weight: 700; display: block; margin-bottom: 4mm; }
-.sec-title { font-family: "Noto Serif SC", serif; font-size: 30px; font-weight: 900; letter-spacing: 3px; color: var(--text); line-height: 1.2; }
-.sec-desc { font-size: 13px; color: var(--text-mid); letter-spacing: 2px; margin-top: 2mm; }
-
 .sub-head {
   font-family: "Noto Serif SC", serif;
-  font-size: 16px; font-weight: 900;
-  letter-spacing: 2px;
-  margin-bottom: 3mm;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
   color: var(--text);
-  position: relative; z-index: 1;
 }
 
 .color-palette {
   display: flex;
-  gap: 5mm;
-  position: relative; z-index: 1;
+  gap: 20px;
 }
 .color-swatch {
   flex: 1;
-  height: 44mm;
-  border-radius: 12px;
+  height: 120px;
+  border-radius: var(--card-radius);
   display: flex;
   align-items: flex-end;
-  padding: 5mm;
+  padding: 16px;
   box-shadow: var(--card-shadow-lg);
   border: 2px solid rgba(0,0,0,0.03);
 }
-.swatch-label { font-size: 12px; font-weight: 700; color: var(--text); background: rgba(255,255,255,0.78); padding: 1mm 5mm; border-radius: 4px; display: inline-block; }
-.swatch-hex { font-size: 9px; color: var(--text-mid); margin-top: 1mm; }
+.swatch-info { width: 100%; }
+.swatch-label { font-size: 14px; font-weight: 700; color: var(--text); background: rgba(255,255,255,0.78); padding: 3px 12px; border-radius: 6px; display: inline-block; }
+.swatch-hex { font-size: 11px; color: var(--text-mid); margin-top: 4px; }
 
 .accent-dot {
-  text-align: center; margin-top: 3mm;
-  font-size: 11px; color: var(--text-mid); font-weight: 700;
-  position: relative; z-index: 1;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--text-mid);
+  font-weight: 700;
 }
 .accent-circle {
   display: inline-block;
-  width: 16px; height: 16px;
+  width: 22px; height: 22px;
   border-radius: 50%;
   background: var(--accent-warm);
   vertical-align: middle;
-  margin-right: 4px;
+  margin-right: 6px;
 }
 
 .series-grid {
   display: flex;
-  gap: 4mm;
-  position: relative; z-index: 1;
+  gap: 14px;
 }
 .series-color {
   flex: 1;
-  height: 28mm;
-  border-radius: 10px;
+  height: 60px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px; letter-spacing: 1px;
-  color: #fff; font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #fff;
+  font-weight: 700;
   box-shadow: var(--card-shadow);
   border: 3px solid rgba(255,255,255,0.4);
+  text-align: center;
+  line-height: 1.4;
 }
 
 .photo-tags {
-  display: flex; gap: 3mm; flex-wrap: wrap;
-  position: relative; z-index: 1;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 .photo-tag {
-  padding: 2mm 5mm;
-  border-radius: 20px;
-  font-size: 12px; font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 700;
   background: #FFFDF9;
   border: 2px solid rgba(217,185,145,0.18);
   color: var(--text-mid);
 }
-.pt-1 { border-color: rgba(224,123,76,0.18); background: #FFFBF7; }
-.pt-2 { border-color: rgba(150,185,130,0.18); background: #FAFCF9; }
-.pt-3 { border-color: rgba(217,185,145,0.18); background: #FFFDF8; }
+.pt-1 { border-color: rgba(224,123,76,0.20); background: #FFFBF7; }
+.pt-2 { border-color: rgba(150,185,130,0.20); background: #FAFCF9; }
+.pt-3 { border-color: rgba(217,185,145,0.20); background: #FFFDF8; }
 
 .ref-brands {
-  display: flex; gap: 4mm; flex-wrap: wrap;
-  position: relative; z-index: 1;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 .ref-brand {
   font-family: "Noto Serif SC", serif;
-  font-size: 15px; color: var(--text-mid);
-  letter-spacing: 2px;
-  padding: 2mm 6mm;
-  border: 2px solid rgba(217,185,145,0.18);
-  border-radius: 20px;
+  font-size: 18px;
+  color: var(--text-mid);
+  letter-spacing: 3px;
+  padding: 10px 24px;
+  border: 2px solid rgba(217,185,145,0.20);
+  border-radius: 30px;
   font-weight: 700;
   background: #FFFDF9;
 }
@@ -201,8 +179,14 @@ const refBrands = ['共我生活', '尾巴生活', 'MUJI', '观夏']
 .trademark {
   display: flex;
   justify-content: center;
-  margin-top: 8mm;
-  position: relative; z-index: 1;
+  margin-top: 48px;
 }
-.trademark img { height: 30mm; opacity: 0.75; }
+.trademark img { height: 60px; opacity: 0.75; }
+
+@media (max-width: 640px) {
+  .color-palette { flex-direction: column; }
+  .color-swatch { height: 80px; }
+  .series-grid { flex-wrap: wrap; }
+  .series-color { flex: none; width: calc(33% - 10px); height: 48px; font-size: 12px; }
+}
 </style>
