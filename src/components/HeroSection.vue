@@ -1,11 +1,6 @@
 <template>
   <section class="hero-section">
-    <div class="blob blob-warm" style="width:600px;height:600px;top:-160px;right:-180px;"></div>
-    <div class="blob blob-gold" style="width:420px;height:420px;bottom:-120px;left:-120px;"></div>
-    <div class="blob blob-pink" style="width:320px;height:320px;top:45%;left:50%;transform:translate(-50%,-50%);"></div>
-
     <div class="hero-inner fade-in">
-      <div class="hero-badge">PET GROWTH LIFESTYLE BRAND</div>
       <img class="hero-logo" src="/品牌logo.jpg" alt="屿尾与季" />
       <div class="hero-line"></div>
       <h1 class="hero-name">屿尾与季</h1>
@@ -25,18 +20,8 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, #FEFAF6 0%, #FCF4E7 25%, #F8EAD5 50%, #F5E2C8 75%, #F2DCC0 100%);
+  background: #fff;
 }
-
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-.blob-warm { background: radial-gradient(circle, rgba(224,123,76,0.12) 0%, rgba(224,123,76,0.03) 50%, transparent 70%); }
-.blob-gold { background: radial-gradient(circle, rgba(217,185,145,0.16) 0%, rgba(217,185,145,0.04) 50%, transparent 70%); }
-.blob-pink { background: radial-gradient(circle, rgba(242,217,205,0.20) 0%, rgba(242,217,205,0.05) 50%, transparent 70%); }
 
 .hero-inner {
   position: relative;
@@ -44,69 +29,56 @@
   padding: 60px 32px;
 }
 
-.hero-badge {
-  display: inline-block;
-  background: var(--accent-warm);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 8px;
-  padding: 10px 28px;
-  border-radius: 30px;
-  margin-bottom: 36px;
-}
-
 .hero-logo {
-  width: 420px;
+  width: 380px;
   max-width: 90%;
-  margin-bottom: 32px;
-  filter: drop-shadow(0 8px 28px rgba(60,25,5,0.12));
+  margin-bottom: 40px;
 }
 
 .hero-line {
-  width: 140px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--accent-warm), var(--rust), var(--accent-warm), transparent);
-  margin: 0 auto 32px;
-  border-radius: 2px;
+  width: 100px;
+  height: 2px;
+  background: var(--accent-warm);
+  margin: 0 auto 40px;
+  border-radius: 1px;
 }
 
 .hero-name {
   font-family: "Noto Serif SC", serif;
-  font-size: 64px;
+  font-size: 56px;
   font-weight: 900;
-  letter-spacing: 16px;
+  letter-spacing: 14px;
   color: var(--text);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .hero-en {
-  font-size: 20px;
-  letter-spacing: 16px;
+  font-size: 18px;
+  letter-spacing: 14px;
   color: var(--accent-deep);
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .hero-slogan {
   font-family: "Noto Serif SC", serif;
-  font-size: 32px;
+  font-size: 28px;
   color: var(--text-mid);
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   line-height: 1.8;
   font-weight: 600;
 }
 
 .hero-sub {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--accent-warm);
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   font-weight: 500;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .hero-sub i {
   display: inline-block;
-  width: 5px; height: 5px;
+  width: 4px; height: 4px;
   background: var(--accent-warm);
   border-radius: 50%;
   vertical-align: middle;
@@ -114,9 +86,9 @@
 }
 
 @media (max-width: 768px) {
-  .hero-name { font-size: 38px; letter-spacing: 8px; }
-  .hero-slogan { font-size: 22px; letter-spacing: 3px; }
-  .hero-logo { width: 280px; }
-  .hero-en { font-size: 16px; letter-spacing: 10px; }
+  .hero-name { font-size: 36px; letter-spacing: 8px; }
+  .hero-slogan { font-size: 20px; letter-spacing: 2px; }
+  .hero-logo { width: 260px; }
+  .hero-en { font-size: 14px; letter-spacing: 10px; }
 }
 </style>

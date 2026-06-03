@@ -33,7 +33,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  background: var(--cream);
+  background: #fff;
   color: var(--text);
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
@@ -55,8 +55,8 @@ body {
 }
 
 .section-tag {
-  font-size: 12px;
-  letter-spacing: 6px;
+  font-size: 14px;
+  letter-spacing: 5px;
   color: var(--accent-warm);
   font-weight: 700;
   text-transform: uppercase;
@@ -65,9 +65,9 @@ body {
 
 .section-title {
   font-family: "Noto Serif SC", serif;
-  font-size: 40px;
+  font-size: 48px;
   font-weight: 900;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: var(--text);
   line-height: 1.25;
   margin-bottom: 16px;
@@ -83,13 +83,13 @@ body {
 
 /* Background variants */
 .bg-warm {
-  background: linear-gradient(180deg, #FFFBF7 0%, #FFF5EE 100%);
+  background: #FFFBF9;
 }
 .bg-neutral {
-  background: var(--white);
+  background: #fff;
 }
 .bg-cool {
-  background: linear-gradient(180deg, #FFFEFB 0%, #F8FAF5 100%);
+  background: #FAFAF8;
 }
 
 /* Decorative blobs */
@@ -126,13 +126,20 @@ body {
 /* ========== Responsive ========== */
 @media (max-width: 768px) {
   .section { padding: 64px 20px; }
-  .section-title { font-size: 30px; letter-spacing: 2px; }
+  .section-title { font-size: 34px; letter-spacing: 2px; }
   .section-subtitle { font-size: 15px; }
 }
 
-/* ========== Print (optional, no A4 constraints) ========== */
+/* ========== Print ========== */
 @media print {
   body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .section { page-break-inside: avoid; padding: 40px 20px; }
   .no-print { display: none !important; }
+
+  /* Force all fade-in elements to be visible */
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

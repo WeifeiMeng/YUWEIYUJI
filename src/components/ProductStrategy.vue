@@ -71,6 +71,7 @@
         </div>
         <div class="product-imgs imgs-2">
           <img src="/零食冻干.jpg" alt="彩虹吊卡冻干" />
+          <img src="/产品总图.jpg" alt="产品总览" />
         </div>
       </div>
     </div>
@@ -211,8 +212,8 @@ const companionProducts = ['莓莓鸡', '虾虾圆子', '排毛小饼', '蓝莓�
   aspect-ratio: 1;
   object-fit: cover;
 }
-.imgs-2 { grid-template-columns: 1fr; }
-.imgs-2 img { max-width: 360px; margin: 0 auto; aspect-ratio: auto; max-height: 320px; }
+.imgs-2 { grid-template-columns: repeat(2, 1fr); }
+.imgs-2 img { aspect-ratio: 1; object-fit: cover; }
 
 .companion-tags {
   display: flex;

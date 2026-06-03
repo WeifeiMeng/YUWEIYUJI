@@ -1,9 +1,5 @@
 <template>
   <section class="closing-section">
-    <div class="blob blob-warm" style="width:500px;height:500px;top:-120px;left:-140px;"></div>
-    <div class="blob blob-pink" style="width:400px;height:400px;bottom:-100px;right:-120px;"></div>
-    <div class="blob blob-gold" style="width:280px;height:280px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
-
     <div class="closing-inner fade-in">
       <img class="closing-img" src="/品牌logo3.jpg" alt="屿尾与季" />
       <div class="closing-line"></div>
@@ -28,18 +24,8 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, #FEFAF6 0%, #FCF4E7 25%, #F8EAD5 50%, #F5E2C8 75%, #F2DCC0 100%);
+  background: #fff;
 }
-
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-.blob-warm { background: radial-gradient(circle, rgba(224,123,76,0.10) 0%, transparent 70%); }
-.blob-pink { background: radial-gradient(circle, rgba(242,217,205,0.16) 0%, transparent 70%); }
-.blob-gold { background: radial-gradient(circle, rgba(217,185,145,0.11) 0%, transparent 70%); }
 
 .closing-inner {
   position: relative;
@@ -48,24 +34,24 @@
 }
 
 .closing-img {
-  width: 320px;
+  width: 280px;
   max-width: 85%;
   margin-bottom: 36px;
 }
 
 .closing-line {
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--accent-warm), var(--rust), var(--accent-warm), transparent);
+  width: 80px;
+  height: 2px;
+  background: var(--accent-warm);
   margin: 0 auto 36px;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 .closing-quote {
   font-family: "Noto Serif SC", serif;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 900;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   color: var(--text);
   line-height: 2.1;
   max-width: 500px;
@@ -73,29 +59,29 @@
 }
 
 .closing-sub {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--text-mid);
-  margin-top: 28px;
-  letter-spacing: 3px;
+  margin-top: 24px;
+  letter-spacing: 2px;
   line-height: 2.2;
 }
 
 .closing-footer {
-  margin-top: 48px;
+  margin-top: 44px;
   font-family: "Noto Serif SC", serif;
-  font-size: 17px;
-  letter-spacing: 6px;
+  font-size: 16px;
+  letter-spacing: 5px;
   font-weight: 700;
   display: inline-block;
-  padding: 10px 32px;
+  padding: 8px 28px;
+  border: 2px solid var(--accent-warm);
   border-radius: 30px;
-  background: rgba(255,255,255,0.5);
   color: var(--accent-warm);
 }
 
 .closing-footer i {
   display: inline-block;
-  width: 5px; height: 5px;
+  width: 4px; height: 4px;
   background: var(--accent-warm);
   border-radius: 50%;
   vertical-align: middle;
@@ -104,6 +90,6 @@
 
 @media (max-width: 768px) {
   .closing-quote { font-size: 24px; }
-  .closing-sub { font-size: 16px; }
+  .closing-sub { font-size: 15px; }
 }
 </style>
