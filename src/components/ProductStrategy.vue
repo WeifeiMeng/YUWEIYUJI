@@ -209,11 +209,8 @@ const companionProducts = ['莓莓鸡', '虾虾圆子', '排毛小饼', '蓝莓�
   border-radius: 12px;
   box-shadow: var(--card-shadow-lg);
   border: 2px solid rgba(0,0,0,0.03);
-  aspect-ratio: 1;
-  object-fit: cover;
 }
 .imgs-2 { grid-template-columns: repeat(2, 1fr); }
-.imgs-2 img { aspect-ratio: 1; object-fit: cover; }
 
 .companion-tags {
   display: flex;
